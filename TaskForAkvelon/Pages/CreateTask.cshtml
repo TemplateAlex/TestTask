@@ -1,0 +1,40 @@
+﻿@page
+@model TaskForAkvelon.Pages.CreateTaskModel
+@{
+    ViewData["Title"] = "Create Task";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/StyleForForms.css" type="text/css">
+}
+
+<div class="form-wrapper container-fluid d-flex justify-content-center">
+    <div class="form-wrapper__form">
+        <form method="post">
+            <div class="form-group">
+                <label for="taskName">Task Name:</label>
+                <input class="form-control" id="taskName" type="text" name="taskName">
+            </div>
+            <div class="form-group">
+                <label for="taskStat">Task Status:</label>
+                <select class="form-control" id="taskStat" name="taskStatus">
+                    <option selected value="ToDo">To Do</option>
+                    <option value="InProgress">In Progress</option>
+                    <option value="Done">Done</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="taskDecs">Describe your task</label>
+                <textarea class="form-control" id="taskDesc" type="text" name="taskDesc"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="taskPriority">Task Priority</label>
+                <input class="form-group" id="taskPriority" type="number" name="taskPriority">
+            </div>
+            <div class="container-fluid d-flex justify-content-end">
+                <button class="btn btn-info" type="submit">Create Task</button>
+            </div>
+        </form>
+    </div>
+</div>
+

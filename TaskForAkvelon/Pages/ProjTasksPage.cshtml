@@ -1,0 +1,73 @@
+﻿@page
+@model TaskForAkvelon.Pages.ProjTasksPageModel
+@{
+    ViewData["Title"] = "Project Tasks";
+    int wall = 3;
+    int startIndex = 0;
+}
+
+@using TaskForAkvelon.HtmlHelpers
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/StyleForCards.css" type="text/css">
+}
+
+@section Scripts {
+    <script src="~/js/ScriptForUnline.js"></script>
+} 
+
+<div class="row">
+    <div class="col-6 d-flex justify-content-start">
+        <h1>@Model.Project.ProjectName</h1>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+        <div class="conatiner">
+            <a class="text-light" asp-page="CreateTask" asp-route-numProject="@Model.NumProject">
+                <div class="btn-create">
+                    <div class="info-btn d-flex justify-content-center">
+                        <p class="mt-2">Create Task</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="conatiner ml-3">
+            <a class="text-light" asp-page="ChangeProject" asp-route-numProject="@Model.NumProject">
+                <div class="btn-create">
+                    <div class="info-btn d-flex justify-content-center">
+                        <p class="mt-2">Change Project</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="conatiner ml-3">
+            <form method="post">
+                <button class="btn btn-danger btn-remove" type="submit">Remove Project</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="tasks-cards__wrapper mt-5">
+    <!--This is algorithm creates rows that rows divided into three columns. In every columns have project card-->
+    @while (startIndex < Model.Tasks.Count)
+    {
+    <div class="row">
+        <!--List exit check-->
+        @if (Model.Tasks.Count - wall < 0)
+        {
+            @for (int i = startIndex; i < Model.Tasks.Count; i++)
+            {
+                @Html.CreateTaskCard(Model.Tasks[i], Model.NumProject)
+            }
+        }
+        else
+        {
+            @for (int i = startIndex; i < wall; i++)
+            {
+                @Html.CreateTaskCard(Model.Tasks[i], Model.NumProject)
+            }
+        }
+
+        @{ startIndex = wall; wall += 3;}
+    </div>
+    }
+</div>

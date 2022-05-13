@@ -1,0 +1,54 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+/*Create main styles for main parts for our site and set default stilizations*/
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.main-wrapper {
+    min-height: 100%;
+}
+
+.main {
+    flex: 1 1 auto;
+    padding: 50px 5px 5px 5px;
+}
+
+.header, .footer {
+    height: 100px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}
+
+/*Change type of font and colour for our text*/
+.link-menu {
+    font-family: 'Pacifico', cursive;
+}
+
+.text-btn {
+    font-family: 'Raleway', sans-serif;
+}
+
+/*Create stilization for some buttons*/
+.btn-create {
+    background-color: rgb(128, 128, 128);
+    box-shadow: 5px 5px 6px rgba(128, 128, 128, 0.85);
+    border-radius: 25px;
+    height: 50px;
+    min-width: 200px;
+    transition: 1s;
+}
+
+.btn-create:hover {
+    box-shadow: 0 0 1px rgba(128, 128, 128, 0.2);
+}
+
+.btn-remove {
+    height: 50px;
+}

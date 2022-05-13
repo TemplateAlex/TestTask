@@ -1,0 +1,54 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Projects";
+    int wall = 3;
+    int startIndex = 0;
+}
+
+@using HtmlHelpers
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/StyleForCards.css" type="text/css">
+}
+
+@section Scripts {
+    <script src="~/js/ScriptForUnline.js"></script>
+}
+
+
+<div class="wrapper-projects">
+    <div class="conatiner-fluid d-flex justify-content-end">
+        <a class="text-light" asp-page="CreateProject">
+            <div class="btn-create">
+                <div class="info-btn d-flex justify-content-center">
+                    <p class="mt-2">Create project</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="projects-cards__wrapper mt-5">
+        <!--This is algorithm creates rows that rows divided into three columns. In every columns have project card-->
+        @while(startIndex < Model.Projects.Count)
+        {
+            <div class="row">
+            <!--List exit check-->
+            @if(Model.Projects.Count - wall < 0)
+            {
+                @for(int i = startIndex; i < Model.Projects.Count; i++)
+                {
+                    @Html.CreateProjectCard(Model.Projects[i])
+                }
+            } else
+            {
+                @for(int i = startIndex; i < wall; i++)
+                {
+                    @Html.CreateProjectCard(Model.Projects[i])
+                }
+            } 
+
+            @{ startIndex = wall; wall += 3;}
+            </div>
+        }
+    </div>
+</div>

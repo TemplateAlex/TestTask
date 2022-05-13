@@ -1,0 +1,64 @@
+﻿@page
+@model TaskForAkvelon.Pages.ChangeProjectModel
+@{
+    ViewData["Title"] = "Change Project";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/StyleForForms.css" type="text/css">
+}
+
+<div class="form-wrapper container-fluid d-flex justify-content-center">
+    <div class="form-wrapper__form">
+        <form method="post">
+            <div class="form-group">
+                <label for="projName">Project Name:</label>
+                <input class="form-control" id="projName" type="text" name="projectName" value="@Model.Project.ProjectName">
+            </div>
+            <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input class="form-control" id="startDate" type="date" name="startDate" value="@Model.Project.StartDate">
+            </div>
+            <div class="form-group">
+                <label for="completionDate">Completion Date:</label>
+                <input class="form-control" id="completionDate" type="date" name="completionDate" value="@Model.Project.CompletionDate">
+            </div>
+            <div class="form-group">
+                <label for="projStat">Project Status</label>
+                <select class="form-control" id="projStat" name="projectStatus">
+                    <!--Show existing status-->
+                    @if(Model.Project.ProjectStatus == "NotStarted")
+                    {
+                        <option selected value="NotStarted">Not Started</option>
+                    } else
+                    {
+                        <option value="NotStarted">Not Started</option>
+                    }
+
+                    @if (Model.Project.ProjectStatus == "Active")
+                    {
+                        <option selected value="Active">Active</option>
+                    }  else
+                    {
+                        <option value="Active">Active</option>
+                    }
+
+                    @if (Model.Project.ProjectStatus == "Completed")
+                    {
+                        <option selected value="Completed">Completed</option>
+                    } else
+                    {
+                        <option value="Completed">Completed</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="projPriority">Project Priority</label>
+                <input class="form-group" id="projPriority" type="number" name="projectPriority" value="@Model.Project.ProjectPriority">
+            </div>
+            <div class="container-fluid d-flex justify-content-end">
+                <button class="btn btn-success" type="submit">Change</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@page
+@model TaskForAkvelon.Pages.TaskDescPageModel
+@{
+    ViewData["Title"] = "Description Task";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/StyleForList.css" type="text/css">
+}
+
+<div class="task-desc__wrapper">
+    <div class="row">
+        <div class="col-6 d-flex justify-content-start">
+            <h1>@Model.Project.ProjectName/@Model.Task.TaskName</h1>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <div class="conatiner ml-3">
+                <a class="text-light" asp-page="ChangeTask" asp-route-numProject="@Model.NumProject" asp-route-numTask="@Model.NumTask">
+                    <div class="btn-create">
+                        <div class="info-btn d-flex justify-content-center">
+                            <p class="mt-2">Change Task</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="conatiner ml-3">
+                <form method="post">
+                    <button class="btn btn-danger btn-remove" type="submit">Remove Task</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <ul class="info-task__list">
+            <li class="info-list__item">
+                <h3>Task Name: @Model.Task.TaskName</h3>
+            </li>
+            <li class="info-list__item">
+                <h3>Task Status: @Model.Task.TaskStatus</h3>
+            </li>
+            <li class="info-list__item">
+                <h3>Task Description: @Model.Task.TaskDesc</h3>
+            </li>
+            <li class="info-list__item">
+                <h3>Task Priority: @Model.Task.TaskPriority</h3>
+            </li>
+        </ul>
+    </div>
+</div>

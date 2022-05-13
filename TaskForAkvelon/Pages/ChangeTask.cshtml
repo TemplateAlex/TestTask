@@ -1,0 +1,62 @@
+﻿@page
+@model TaskForAkvelon.Pages.ChangeTaskModel
+@{
+    ViewData["Title"] = "Change Task";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/StyleForForms.css" type="text/css">
+}
+
+<div class="form-wrapper container-fluid d-flex justify-content-center">
+    <div class="form-wrapper__form">
+        <form method="post">
+            <div class="form-group">
+                <label for="taskName">Task Name:</label>
+                <input class="form-control" id="taskName" type="text" name="taskName" value="@Model.Task.TaskName">
+            </div>
+            <div class="form-group">
+                <label for="taskStat">Task Status:</label>
+                <select class="form-control" id="taskStat" name="taskStatus">
+                    <!--Show existing status on the display-->
+                    @if (Model.Task.TaskStatus == "ToDo")
+                    {
+                        <option selected value="ToDo">To Do</option>
+                    } else
+                    {
+                        <option value="ToDo">To Do</option>
+                    }
+
+                    @if (Model.Task.TaskStatus == "InProgress")
+                    {
+                        <option selected value="InProgress">In Progress</option>
+                    } else
+                    {
+                        <option selected value="InProgress">In Progress</option>
+                    }
+
+                    @if (Model.Task.TaskStatus == "Done")
+                    {
+                        <option selected value="Done">Done</option>
+                    } else
+                    {
+                        <option value="Done">Done</option>
+                    }
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="taskDecs">Describe your task</label>
+                <textarea class="form-control" id="taskDesc" type="text" name="taskDesc" value="@Model.Task.TaskDesc"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="taskPriority">Task Priority</label>
+                <input class="form-group" id="taskPriority" type="number" name="taskPriority" value="@Model.Task.TaskPriority">
+            </div>
+            <div class="container-fluid d-flex justify-content-end">
+                <button class="btn btn-success" type="submit">Change Task</button>
+            </div>
+        </form>
+    </div>
+</div>
+

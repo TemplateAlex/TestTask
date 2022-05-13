@@ -1,0 +1,21 @@
+﻿/*Create stilization for cards*/
+.project-card__wrapper {
+    height: 300px;
+    width: 300px;
+    margin-top: 50px;
+}
+
+.project-card {
+    border-radius: 5px;
+    box-shadow: 0 0 2px rgba(102, 102, 102, 0.75);
+    height: 100%;
+}
+
+/*Create stilization for underline*/
+.unline {
+    height: 2px;
+    width: 0%;
+    box-shadow: 0 0 0.5px rgba(111, 78, 55, 0.75);
+    background-color: rgb(111, 78, 55);
+    transition: all 2s;
+}
